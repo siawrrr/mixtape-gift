@@ -259,3 +259,21 @@ h1, h2, h3, p { margin: 0; }
 .cassette-skin-09 { background: linear-gradient(135deg, #ffd78c, var(--tape-body) 50%, #df784a); }.cassette-skin-09 .cassette-skin-accent::before { content: "tangerine crush"; left: 13px; top: 12px; color: #8d3e32; font-family: "Caveat", cursive; font-size: 15px; transform: rotate(-5deg); }.cassette-skin-09 .cassette-skin-accent::after { content: "✦"; right: 18px; bottom: 13px; color: #fff0b5; font-size: 20px; }
 .cassette-skin-10 { background: linear-gradient(135deg, #cbd58a, var(--tape-body) 52%, #71844d); }.cassette-skin-10 .cassette-skin-accent::before { content: "ARCHIVE 01"; left: 14px; top: 14px; color: #f0f2c6; font-family: "Space Mono", monospace; font-size: 7px; letter-spacing: .1em; }.cassette-skin-10 .cassette-skin-accent::after { content: "☘"; right: 18px; bottom: 11px; color: #eaf0ba; font-size: 21px; }
 .cassette-skin-accent ~ .cassette-shine { z-index: 4; }.cassette-skin-accent ~ .window, .cassette-skin-accent ~ .cassette-label, .cassette-skin-accent ~ .screw, .cassette-skin-accent ~ .cassette-notch { z-index: 3; }
+
+
+/* vintage workshop atmosphere */
+.studio-page { background-color: #241f1e; background-image: radial-gradient(rgba(242,178,158,.08) 1px, transparent 1px), repeating-linear-gradient(135deg, transparent 0 26px, rgba(255,255,255,.025) 27px 28px); background-size: 7px 7px, 42px 42px; }
+.studio-topbar, .tool-rail { background: rgba(24,20,20,.28); }
+.saved-tape-button { position: relative; cursor: pointer; }
+.saved-hover-play { position: absolute; left: 50%; bottom: 12px; transform: translate(-50%, 8px); opacity: 0; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); padding: 7px 9px; font-family: "Space Mono", monospace; font-size: 7px; text-transform: uppercase; box-shadow: 2px 2px 0 var(--ink); transition: opacity .18s ease, transform .18s var(--ease-out); }
+.saved-card:hover .saved-hover-play, .saved-hover-play:focus-visible { opacity: 1; transform: translate(-50%, 0); }
+.saved-card:hover .saved-tape-button .tape-wrap { transform: rotate(-2deg) translateY(-5px); }
+/* final framing correction */
+.studio-layout { height: calc(100vh - 122px); min-height: 620px; }
+.studio-canvas { height: 100%; min-height: 0; }
+.studio-tape-position { top: 46%; max-width: calc(100% - 58px); }
+.studio-tape-position .tape-wrap, .studio-tape-position .cassette { max-width: 100%; }
+@media (min-width: 981px) { .studio-tape-position { top: clamp(210px, 30vh, 285px); transform: translateX(-50%) rotate(-5deg); } }
+@media (max-width: 980px) { .studio-layout { height: auto; min-height: calc(100vh - 122px); } .studio-canvas { height: 620px; min-height: 620px; } }
+@media (max-width: 980px) and (min-width: 721px) { .studio-tape-position { top: 235px; transform: translateX(-50%) rotate(-4deg) scale(.9); transform-origin: top center; } }
+@media (max-width: 720px) { .studio-canvas { height: 520px; min-height: 520px; } .studio-tape-position { top: 175px; transform: translateX(-50%) rotate(-3deg) scale(.78); transform-origin: top center; } }
