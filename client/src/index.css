@@ -195,3 +195,67 @@ h1, h2, h3, p { margin: 0; }
 .sticker-rotate-row output { min-width: 35px; color: var(--ink); font-family: "Space Mono", monospace; font-size: 8px; text-align: right; }
 .album-art.has-artwork { background-size: cover; background-position: center; }
 @media (max-width: 720px) { .body-grid { grid-template-columns: repeat(2, 1fr); } }
+
+
+/* cassette workshop upgrade */
+.skin-filter-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 14px; }
+.skin-filter-row .chip { font-size: 7px; padding: 5px 6px; }
+.random-chip { margin-left: auto; color: var(--peach-deep); }
+.body-option small { color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 6px; text-transform: uppercase; }
+.playback-cassette { position: relative; }
+.playback-cassette.is-playing .reel { animation-duration: calc(4.2s / var(--playback-speed)); }
+.playback-dock { min-height: 42px; padding: 7px 17px; display: flex; align-items: center; gap: 7px; border-top: 1px solid rgba(44,37,32,.14); background: rgba(255,250,241,.5); color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 7px; text-transform: uppercase; }
+.playback-dock button { border: 1px solid rgba(44,37,32,.2); background: transparent; min-width: 25px; min-height: 24px; display: grid; place-items: center; }
+.playback-dock .play-button { background: var(--ink); color: var(--paper); min-width: 48px; font-size: 7px; text-transform: uppercase; }
+.now-playing { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; color: var(--ink); }
+.playback-dock label { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.playback-dock select { border: 1px solid rgba(44,37,32,.18); background: #fffaf1; font-family: inherit; font-size: 7px; padding: 4px; }
+.progress-readout { color: var(--peach-deep); }
+.effects-panel { display: grid; gap: 12px; align-content: start; }
+.effect-row { display: grid; gap: 8px; padding: 9px 0; border-bottom: 1px solid rgba(44,37,32,.1); color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 8px; text-transform: uppercase; }
+.effect-row > span { display: flex; align-items: center; gap: 8px; }
+.effect-row input[type="range"] { accent-color: var(--peach-deep); width: 100%; }
+.effect-toggle { width: 29px; padding: 4px 3px; border: 1px solid rgba(44,37,32,.2); background: transparent; font-family: inherit; font-size: 6px; text-transform: uppercase; }
+.effect-toggle.active { background: var(--ink); color: var(--paper); }
+.collection-toolbar { display: flex; gap: 8px; align-items: center; margin-bottom: 33px; border-bottom: 1px solid rgba(44,37,32,.15); padding-bottom: 15px; }
+.collection-toolbar input { flex: 1; max-width: 410px; padding: 11px 12px; border: 1px solid rgba(44,37,32,.18); background: #fffaf1; outline: 0; font-size: 12px; }
+.collection-toolbar button { border: 0; border-bottom: 1px solid transparent; background: transparent; padding: 8px 4px; color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 8px; text-transform: uppercase; }
+.collection-toolbar button.active { color: var(--ink); border-color: var(--peach-deep); }
+.saved-card { display: grid; gap: 0; }
+.saved-tape-button { border: 0; padding: 0; background: transparent; margin: 0 auto 3px; }
+.saved-card .tape-wrap { width: 250px; height: 155px; }
+.saved-card .cassette { width: 250px; height: 155px; border-width: 2px; border-radius: 10px; }
+.saved-card .window { top: 38px; left: 30px; right: 30px; height: 30px; }
+.saved-card .reel { width: 23px; height: 23px; top: 2px; }
+.saved-card .reel::after { inset: 7px; border-width: 2px; }
+.saved-card .reel span { inset: 7px; width: 5px; height: 5px; }
+.saved-card .reel-left { left: 5px; }.saved-card .reel-right { right: 5px; }
+.saved-card .tape-strip { left: 15px; right: 15px; top: 11px; height: 8px; }
+.saved-card .cassette-label { top: 75px; left: 34px; right: 34px; bottom: 13px; gap: 3px; }
+.saved-card .cassette-label strong { font-size: 10px; }.saved-card .cassette-label span { font-size: 4px; }
+.saved-card .notch-left { left: 66px; width: 23px; height: 9px; }.saved-card .notch-right { right: 66px; width: 23px; height: 9px; }
+.saved-actions { display: flex; gap: 8px; border-top: 1px dashed rgba(44,37,32,.18); padding-top: 10px; margin-top: 13px; }
+.saved-actions button { border: 0; background: transparent; color: var(--muted-ink); font-family: "Space Mono", monospace; font-size: 7px; text-transform: uppercase; }
+.saved-actions button:hover { color: var(--peach-deep); }
+.collection-empty { min-height: 250px; display: grid; place-items: center; align-content: center; gap: 10px; text-align: center; border: 1px dashed rgba(44,37,32,.2); background: rgba(255,250,241,.45); }
+.collection-empty > span { color: var(--peach-deep); font-size: 34px; }.collection-empty h2 { font-family: "Fraunces", serif; font-size: 28px; font-weight: 500; }
+.collection-empty p { color: var(--muted-ink); font-size: 12px; }.collection-empty.compact { min-height: 110px; display: flex; }
+@media (max-width: 720px) { .playback-dock { flex-wrap: wrap; }.now-playing { flex-basis: 45%; }.collection-toolbar { flex-wrap: wrap; }.collection-toolbar input { flex-basis: 100%; max-width: none; }.random-chip { margin-left: 0; } }
+
+/* Local cassette skin art: no external image assets required. */
+.cassette-skin-accent { position: absolute; inset: 0; pointer-events: none; z-index: 1; border-radius: inherit; }
+.cassette-skin-accent::before, .cassette-skin-accent::after { position: absolute; pointer-events: none; }
+.cassette-skin-accent::before { content: ""; }.cassette-skin-accent::after { content: ""; }
+.cassette-skin-01 .cassette-skin-accent::before { content: "♥  ✦  ♥"; left: 18px; top: 16px; color: #fff3ef; font-family: "Caveat", cursive; font-size: 14px; letter-spacing: 9px; transform: rotate(-8deg); }
+.cassette-skin-01 .cassette-skin-accent::after { content: "CHERRY POP"; right: 15px; bottom: 16px; color: #8d3d51; font-family: "Space Mono", monospace; font-size: 7px; transform: rotate(5deg); }
+.cassette-skin-02 { background-color: var(--tape-body); background-image: radial-gradient(#fff9d2 1.5px, transparent 1.6px); background-size: 13px 13px; }
+.cassette-skin-02 .cassette-skin-accent::before { content: "matcha mood"; left: 14px; top: 13px; color: #49634a; font-family: "Caveat", cursive; font-size: 15px; transform: rotate(-7deg); }
+.cassette-skin-03 { background: linear-gradient(135deg, #eef1f5, var(--tape-body) 48%, #aeb6c0); }.cassette-skin-03 .cassette-skin-accent::before { content: "Y2K"; left: 18px; bottom: 15px; color: #7684a0; font-family: "Space Mono", monospace; font-size: 10px; letter-spacing: .12em; transform: rotate(-4deg); }.cassette-skin-03 .cassette-skin-accent::after { content: "✦"; right: 20px; top: 12px; color: #fff; font-size: 22px; text-shadow: 0 0 8px #fff; }
+.cassette-skin-04 { background: linear-gradient(155deg, #93e1d7 0 31%, var(--tape-body) 32% 68%, #277e84 69%); }.cassette-skin-04 .cassette-skin-accent::before { content: "POOL CLUB"; left: 15px; top: 14px; color: #f3ffff; font-family: "Space Mono", monospace; font-size: 7px; letter-spacing: .13em; }.cassette-skin-04 .cassette-skin-accent::after { content: "☼"; right: 18px; bottom: 12px; color: #fff1ad; font-size: 21px; }
+.cassette-skin-05 { background: #2d2d31; }.cassette-skin-05 .cassette-skin-accent::before { content: "YEEHAW"; left: 15px; top: 13px; padding: 4px 8px; background: #f2b0c0; color: #432b3a; font-family: "Space Mono", monospace; font-size: 7px; transform: rotate(-6deg); }.cassette-skin-05 .cassette-skin-accent::after { content: "☆"; right: 18px; bottom: 10px; color: #f2b0c0; font-size: 24px; }
+.cassette-skin-06 { background: linear-gradient(160deg, #b9d5ff, var(--tape-body) 55%, #7d9edc); }.cassette-skin-06 .cassette-skin-accent::before { content: "blueberry gel"; left: 12px; top: 13px; color: #36487a; font-family: "Caveat", cursive; font-size: 15px; transform: rotate(5deg); }.cassette-skin-06 .cassette-skin-accent::after { content: "✿  ✧"; right: 15px; bottom: 14px; color: #eff3ff; font-size: 14px; letter-spacing: 5px; }
+.cassette-skin-07 { background: #ead9ad; }.cassette-skin-07 .cassette-skin-accent::before { content: "vanilla"; left: 17px; top: 11px; color: #866044; font-family: "Caveat", cursive; font-size: 18px; transform: rotate(-8deg); }.cassette-skin-07 .cassette-skin-accent::after { content: "🎀"; right: 15px; top: 9px; font-size: 17px; filter: grayscale(1) sepia(.3); }
+.cassette-skin-08 { background: linear-gradient(145deg, #4d5270, var(--tape-body) 58%, #25283b); }.cassette-skin-08 .cassette-skin-accent::before { content: "MIDNIGHT FM"; left: 15px; bottom: 14px; color: #dcbaf3; font-family: "Space Mono", monospace; font-size: 7px; letter-spacing: .1em; }.cassette-skin-08 .cassette-skin-accent::after { content: "☾"; right: 18px; top: 10px; color: #f5d6fb; font-size: 23px; }
+.cassette-skin-09 { background: linear-gradient(135deg, #ffd78c, var(--tape-body) 50%, #df784a); }.cassette-skin-09 .cassette-skin-accent::before { content: "tangerine crush"; left: 13px; top: 12px; color: #8d3e32; font-family: "Caveat", cursive; font-size: 15px; transform: rotate(-5deg); }.cassette-skin-09 .cassette-skin-accent::after { content: "✦"; right: 18px; bottom: 13px; color: #fff0b5; font-size: 20px; }
+.cassette-skin-10 { background: linear-gradient(135deg, #cbd58a, var(--tape-body) 52%, #71844d); }.cassette-skin-10 .cassette-skin-accent::before { content: "ARCHIVE 01"; left: 14px; top: 14px; color: #f0f2c6; font-family: "Space Mono", monospace; font-size: 7px; letter-spacing: .1em; }.cassette-skin-10 .cassette-skin-accent::after { content: "☘"; right: 18px; bottom: 11px; color: #eaf0ba; font-size: 21px; }
+.cassette-skin-accent ~ .cassette-shine { z-index: 4; }.cassette-skin-accent ~ .window, .cassette-skin-accent ~ .cassette-label, .cassette-skin-accent ~ .screw, .cassette-skin-accent ~ .cassette-notch { z-index: 3; }
