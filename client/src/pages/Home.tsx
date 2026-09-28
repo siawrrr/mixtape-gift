@@ -131,12 +131,12 @@ const starterSongs: Song[] = [
 ];
 
 const stickerPacks = {
-  "retro summer": [{ icon: "☼", name: "sun badge" }, { icon: "♫", name: "radio note" }, { icon: "✿", name: "daisy" }, { icon: "▰", name: "road sign" }, { icon: "☾", name: "moon stamp" }],
-  "rock & roll": [{ icon: "⚡", name: "amp spark" }, { icon: "✚", name: "guitar pick" }, { icon: "✹", name: "star burst" }, { icon: "♠", name: "black rose" }, { icon: "///", name: "feedback" }],
-  "gothic night": [{ icon: "☽", name: "crescent" }, { icon: "♱", name: "ornament" }, { icon: "✥", name: "thorn rose" }, { icon: "◈", name: "black gem" }, { icon: "⌁", name: "spiderweb" }],
-  "punk diy": [{ icon: "X", name: "xerox mark" }, { icon: "⊘", name: "warning" }, { icon: "✂", name: "cut here" }, { icon: "▧", name: "tape label" }, { icon: "!", name: "loud note" }],
-  "dreamy": [{ icon: "☁", name: "cloud puff" }, { icon: "☆", name: "soft star" }, { icon: "♡", name: "love letter" }, { icon: "◌", name: "bubble" }, { icon: "✧", name: "glimmer" }],
-  "y2k": [{ icon: "✦", name: "chrome star" }, { icon: "♡", name: "chrome heart" }, { icon: "∞", name: "cyber loop" }, { icon: "◉", name: "pixel disc" }, { icon: "✷", name: "holo burst" }],
+  "retro summer": [{ icon: "☼", name: "sun badge" }, { icon: "♫", name: "radio note" }, { icon: "✿", name: "daisy" }, { icon: "▰", name: "road sign" }, { icon: "☾", name: "moon stamp" }, { icon: "☻", name: "retro smile" }, { icon: "✈", name: "road trip" }],
+  "rock & roll": [{ icon: "⚡", name: "amp spark" }, { icon: "✚", name: "guitar pick" }, { icon: "✹", name: "star burst" }, { icon: "♠", name: "black rose" }, { icon: "///", name: "feedback" }, { icon: "♬", name: "band note" }, { icon: "☠", name: "skull stamp" }, { icon: "ϟϟ", name: "flame mark" }],
+  "gothic night": [{ icon: "☽", name: "crescent" }, { icon: "♱", name: "ornament" }, { icon: "✥", name: "thorn rose" }, { icon: "◈", name: "black gem" }, { icon: "⌁", name: "spiderweb" }, { icon: "♣", name: "dark bloom" }, { icon: "☠", name: "gothic skull" }],
+  "punk diy": [{ icon: "X", name: "xerox mark" }, { icon: "⊘", name: "warning" }, { icon: "✂", name: "cut here" }, { icon: "▧", name: "tape label" }, { icon: "!", name: "loud note" }, { icon: "⚑", name: "riot flag" }, { icon: "///", name: "marker slash" }],
+  "dreamy": [{ icon: "☁", name: "cloud puff" }, { icon: "☆", name: "soft star" }, { icon: "♡", name: "love letter" }, { icon: "◌", name: "bubble" }, { icon: "✧", name: "glimmer" }, { icon: "ʚɞ", name: "butterfly" }, { icon: "☄", name: "shooting star" }],
+  "y2k": [{ icon: "✦", name: "chrome star" }, { icon: "♡", name: "chrome heart" }, { icon: "∞", name: "cyber loop" }, { icon: "◉", name: "pixel disc" }, { icon: "✷", name: "holo burst" }, { icon: "◍", name: "disc pop" }, { icon: "⌬", name: "cyber flower" }],
 } as const;
 const stickerOptions = Object.values(stickerPacks).flat();
 
@@ -155,6 +155,16 @@ const backgrounds = [
   { id: "blue", label: "Poolside", className: "bg-blue" },
   { id: "night", label: "Late night", className: "bg-night" },
   { id: "checker", label: "Diner check", className: "bg-checker" },
+  { id: "punk-zine", label: "Punk zine", className: "bg-punk-zine" },
+  { id: "amp-room", label: "Amp room", className: "bg-amp-room" },
+  { id: "vinyl-bar", label: "Vinyl bar", className: "bg-vinyl-bar" },
+  { id: "gothic-velvet", label: "Velvet night", className: "bg-gothic-velvet" },
+  { id: "moonlit", label: "Moonlit rose", className: "bg-moonlit" },
+  { id: "lavender-haze", label: "Lavender haze", className: "bg-lavender-haze" },
+  { id: "cloud-room", label: "Cloud room", className: "bg-cloud-room" },
+  { id: "aura-sunset", label: "Aura sunset", className: "bg-aura-sunset" },
+  { id: "aura-ocean", label: "Aura ocean", className: "bg-aura-ocean" },
+  { id: "holo-dream", label: "Holo dream", className: "bg-holo-dream" },
 ];
 
 const randomTitles = ["RAINY NIGHT MIXTAPE", "SUMMER 2007", "SONGS FOR THE TRAIN", "A LITTLE SOMETHING", "LOVE LETTER VOL. 01"];
@@ -244,7 +254,7 @@ function Footer() {
 }
 
 function CassetteCanvas({ body, decorations, selectedDeco, setSelectedDeco, setDecorations, setTab, labelTitle, recipient, flipped, onFlip }: { body: CassetteBody; decorations: Deco[]; selectedDeco: number | null; setSelectedDeco: (id: number | null) => void; setDecorations: React.Dispatch<React.SetStateAction<Deco[]>>; setTab: (tab: Tab) => void; labelTitle: string; recipient: string; flipped: boolean; onFlip: () => void }) {
-  return <div className="canvas-wrap"><div className="canvas-grid" /><div className="canvas-ruler ruler-top">01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;05</div><div className="canvas-ruler ruler-side">A<br /><br />B<br /><br />C<br /><br />D<br /><br />E</div><div className="canvas-note">drag your little<br />bits around ↗</div><div className="studio-tape-position"><MiniTape body={body} title={labelTitle} flipped={flipped} onClick={onFlip} /></div><div className="studio-label-copy"><span>{recipient ? `for ${recipient}` : "for someone special"}</span><b>{labelTitle || "songs that remind me of you"}</b></div>{decorations.map((deco) => <button type="button" key={deco.id} aria-label={`Select ${deco.name}`} className={`canvas-deco ${deco.type} ${selectedDeco === deco.id ? "selected" : ""}`} style={{ left: `${deco.x}%`, top: `${deco.y}%`, transform: `rotate(${deco.rotate}deg) scale(${deco.scale})` }} onPointerDown={(event) => { event.preventDefault(); const canvas = event.currentTarget.closest(".canvas-wrap"); if (!canvas) return; const move = (moveEvent: PointerEvent) => { const rect = canvas.getBoundingClientRect(); setDecorations((items) => items.map((item) => item.id === deco.id ? { ...item, x: Math.max(4, Math.min(94, ((moveEvent.clientX - rect.left) / rect.width) * 100)), y: Math.max(8, Math.min(88, ((moveEvent.clientY - rect.top) / rect.height) * 100)) } : item)); }; const up = () => { window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); }; window.addEventListener("pointermove", move); window.addEventListener("pointerup", up); setSelectedDeco(deco.id); setTab("stickers"); }}>{deco.text || deco.icon}</button>)}</div>;
+  return <div className="canvas-wrap"><div className="canvas-grid" /><div className="canvas-ruler ruler-top">01&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;02&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;04&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;05</div><div className="canvas-ruler ruler-side">A<br /><br />B<br /><br />C<br /><br />D<br /><br />E</div><div className="canvas-note">drag your little<br />bits around ↗</div><div className="studio-tape-position"><MiniTape body={body} title={labelTitle} flipped={flipped} onClick={onFlip} /></div><div className="studio-label-copy"><span>{recipient ? `for ${recipient}` : "for someone special"}</span><b>{labelTitle || "songs that remind me of you"}</b></div>{decorations.map((deco) => <button type="button" key={deco.id} aria-label={`Select ${deco.name}`} className={`canvas-deco ${deco.type} ${selectedDeco === deco.id ? "selected" : ""}`} style={{ left: `${deco.x}%`, top: `${deco.y}%`, transform: `rotate(${deco.rotate}deg) scale(${deco.scale})` }} onPointerDown={(event) => { event.preventDefault(); const canvas = event.currentTarget.closest(".canvas-wrap"); if (!canvas) return; const move = (moveEvent: PointerEvent) => { const rect = canvas.getBoundingClientRect(); setDecorations((items) => items.map((item) => item.id === deco.id ? { ...item, x: Math.max(12, Math.min(88, ((moveEvent.clientX - rect.left) / rect.width) * 100)), y: Math.max(18, Math.min(82, ((moveEvent.clientY - rect.top) / rect.height) * 100)) } : item)); }; const up = () => { window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); }; window.addEventListener("pointermove", move); window.addEventListener("pointerup", up); setSelectedDeco(deco.id); setTab("stickers"); }}>{deco.text || deco.icon}</button>)}</div>;
 }
 
 function Studio({ onBack, onGift, onSave }: { onBack: () => void; onGift: (songs: Song[], title: string, recipient: string, letter: string, body: CassetteBody, decorations: Deco[]) => void; onSave: (record: CassetteRecord) => void }) {
@@ -306,7 +316,7 @@ function Studio({ onBack, onGift, onSave }: { onBack: () => void; onGift: (songs
 
   const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 2200); };
   const pushHistory = (message: string) => setHistory((items) => [message, ...items].slice(0, 5));
-  const addDeco = (option: { icon: string; name: string; text?: string }, type: "sticker" | "gem") => { const id = Date.now(); setDecorations((items) => [...items, { id, type, icon: option.icon, name: option.name, text: option.text, x: 20 + Math.random() * 60, y: 20 + Math.random() * 60, rotate: -15 + Math.random() * 30, scale: type === "gem" ? 0.7 + Math.random() * 0.4 : 0.8 + Math.random() * 0.35 }]); setSelectedDeco(id); pushHistory(`added ${option.name}`); notify(`${option.name} placed on the tape`); };
+  const addDeco = (option: { icon: string; name: string; text?: string }, type: "sticker" | "gem") => { const id = Date.now(); setDecorations((items) => [...items, { id, type, icon: option.icon, name: option.name, text: option.text, x: 30 + Math.random() * 40, y: 34 + Math.random() * 28, rotate: -15 + Math.random() * 30, scale: type === "gem" ? 0.7 + Math.random() * 0.4 : 0.8 + Math.random() * 0.35 }]); setSelectedDeco(id); pushHistory(`added ${option.name}`); notify(`${option.name} placed inside the tape canvas`); };
   const randomize = () => { const nextBody = bodies[Math.floor(Math.random() * bodies.length)]; const nextTitle = randomTitles[Math.floor(Math.random() * randomTitles.length)]; setBody(nextBody); setTitle(nextTitle); setBackground(backgrounds[Math.floor(Math.random() * backgrounds.length)].id); setDecorations(stickerOptions.slice(0, 3).map((item, index) => ({ id: Date.now() + index, type: "sticker", icon: item.icon, name: item.name, x: 25 + index * 24, y: 25 + (index % 2) * 42, rotate: -10 + index * 8, scale: 0.9 }))); notify("a little surprise, coming right up ✦"); };
   const addSong = async (song?: Song) => {
     if (songs.length >= 8) { notify("your tape is full of feelings"); return; }
