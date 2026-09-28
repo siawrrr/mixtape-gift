@@ -1,0 +1,7 @@
+cat << 'EOF' > ~/Desktop/mixtape-gift/vercel.json
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
+EOF
