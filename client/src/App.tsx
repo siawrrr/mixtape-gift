@@ -1,8 +1,18 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path="/gift/:shareToken">{(params) => <Home sharedToken={params.shareToken} />}</Route>
+      <Route path="/"><Home /></Route>
+    </Switch>
+  );
+}
 
 function App() {
   return (
@@ -10,7 +20,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Home />
+          <Router />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
